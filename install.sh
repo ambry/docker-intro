@@ -34,7 +34,7 @@ sudo yum-config-manager \
     https://download.docker.com/linux/centos/docker-ce.repo
 
 echo "Installing Docker"
-sudo yum install docker-ce docker-ce-cli containerd.io
+sudo yum install -y docker-ce docker-ce-cli containerd.io
 
 # Add current user to the docker group to avoid having to run with sudo.
 # Warning: The docker group grants privileges equivalent to the root user.
