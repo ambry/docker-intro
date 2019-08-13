@@ -55,6 +55,7 @@ echo "Starting Docker"
 sudo systemctl start docker
 
 echo "Installed:"
-docker --version 2>/dev/null || echo "Please logout and log back in for your group permission to access docker to take effect"
-docker-compose --version 2>/dev/null || echo "Please logout and log back in for your group permission to access docker to take effect"
+docker --version 2>/dev/null && \
+    docker-compose --version 2>/dev/null || \
+    echo "Please logout and log back in for your group permission to access docker to take effect"
 exit
