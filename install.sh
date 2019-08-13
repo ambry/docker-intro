@@ -22,10 +22,19 @@ if [[ -d "$VMWARE_TOOLS_CONF_DIR" ]]; then
     fi
 fi
 
-
 # Install Docker
+echo "Installing Docker dependencies"
+sudo yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+
+echo "Adding Docker repository"
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
 echo "Installing Docker"
-curl -s https://get.docker.com/ | bash -s
+sudo yum install docker-ce docker-ce-cli containerd.io
 
 # Add current user to the docker group to avoid having to run with sudo.
 # Warning: The docker group grants privileges equivalent to the root user.
@@ -36,13 +45,16 @@ sudo usermod -aG docker $USER
 echo "Configuring Docker to start on boot"
 sudo systemctl enable docker
 
-
 # Install Docker Compose
 echo "Installing docker-compose"
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
+
+echo "Starting Docker"
+sudo systemctl start docker
+
 echo "Installed:"
-docker --version || echo "Please logout and log back in for your group permission to access docker to take effect"
-docker-compose --version
+docker --version 2>/dev/null || echo "Please logout and log back in for your group permission to access docker to take effect"
+docker-compose --version 2>/dev/null || echo "Please logout and log back in for your group permission to access docker to take effect"
 exit
