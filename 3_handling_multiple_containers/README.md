@@ -4,12 +4,12 @@
 
 Serve a Symfony application running in a PHP-FPM container from an nginx container
 
-# Build The Images
+## Build The Images
 
     docker build -t part_three_app app
     docker build -t part_three_nginx nginx
 
-# Run The Containers
+## Run The Containers
 
 It is important that we assign a name to the FPM container since it will need to be references from the nginx container.
 
@@ -20,7 +20,7 @@ We can use `docker exec` to inspect the app container and confirm it was correct
 
     docker exec -it app /bin/sh
 
-# Network The Containers
+## Network The Containers
 
 Nginx cannot resolve the host "app" because the containers are not on the same network. To allow the containers to
 communicate we need to create a network and add both containers.
