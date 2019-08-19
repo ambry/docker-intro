@@ -7,10 +7,6 @@ WORKDIR /app
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 COPY composer.json composer.lock symfony.lock .env ./
-COPY bin bin/
-COPY config config/
-COPY public public/
-COPY src src/
 
 RUN set -eux; \
     composer install \
@@ -21,6 +17,11 @@ RUN set -eux; \
     --no-progress \
     --no-suggest \
     --no-interaction
+
+COPY bin bin/
+COPY config config/
+COPY public public/
+COPY src src/
 
 RUN set -eux; \
 	mkdir -p var/cache var/log; \

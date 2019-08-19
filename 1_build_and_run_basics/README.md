@@ -19,7 +19,8 @@ Use `docker container create` to create a container from the image we just built
     docker container create part_one_nginx
 
 The container should appear when you run `docker container ls -a`. The `-a` flag causes the command to list all
-containers instead of just running containers.
+containers instead of just running containers. You should see a `CONTAINER ID` column in the output of the ls command.
+You can use this ID to reference the container.
 
 To start the container use:
 
@@ -57,6 +58,11 @@ cli. The nginx container outputs access logs to STDOUT.
 To run the container "detached" from your cli you can include the `-d` option
 
     docker run -p 80:80 -d part_one_nginx
+
+You can confirm the container is running by running `docker container ls`. You should see that the host port 80 is
+mapped to the container port 80.
+
+    0.0.0.0:80->80/tcp
 
 You can attach the container by running:
 
