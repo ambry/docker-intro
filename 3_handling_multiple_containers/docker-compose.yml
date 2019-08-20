@@ -1,0 +1,17 @@
+version: '3.6'
+
+services:
+    nginx:
+        container_name: part_three_nginx
+        build: ./nginx
+        ports:
+            - 8080:80
+        networks:
+            - app_net
+    app:
+        container_name: part_three_app
+        build: ./app
+        networks:
+            - app_net
+networks:
+    app_net:

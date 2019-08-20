@@ -18,10 +18,7 @@ RUN set -eux; \
     --no-suggest \
     --no-interaction
 
-COPY bin bin/
-COPY config config/
-COPY public public/
-COPY src src/
+COPY . .
 
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
