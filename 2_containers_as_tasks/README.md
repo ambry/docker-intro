@@ -38,3 +38,9 @@ step.
 
     docker build -t part_two_nginx .
     docker container run -p 80:80 -d part_two_nginx
+
+## Command References
+- [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/)
+- [`docker build`](https://docs.docker.com/engine/reference/commandline/build/)
+- [`docker container`](https://docs.docker.com/engine/reference/commandline/container/)
+- [`docker run`](https://docs.docker.com/engine/reference/commandline/run/)
