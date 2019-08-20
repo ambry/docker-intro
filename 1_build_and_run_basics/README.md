@@ -73,3 +73,8 @@ To start a container with the current directory mounted, run:
     docker run -p 80:80 -d -v $(pwd):/app part_one_nginx
 
 Now you can edit index.html and the changes will be reflected when you refresh the page in your browser.
+
+## Command References
+- [`docker build`](https://docs.docker.com/engine/reference/commandline/build/)
+- [`docker container`](https://docs.docker.com/engine/reference/commandline/container/)
+- [`docker run`](https://docs.docker.com/engine/reference/commandline/run/)

@@ -33,3 +33,13 @@ the FPM container. We must remove the container and run it again passing in the 
 
     docker container rm nginx
     docker run -d -p 80:80 --network app_net --name nginx part_three_nginx
+
+
+
+## Command References
+- [`docker build`](https://docs.docker.com/engine/reference/commandline/build/)
+- [`docker container`](https://docs.docker.com/engine/reference/commandline/conainer/)
+- [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/)
+- [`docker network`](https://docs.docker.com/engine/reference/commandline/network/)
+- [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/)
+- [`docker run`](https://docs.docker.com/engine/reference/commandline/run/)
